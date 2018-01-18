@@ -2,6 +2,7 @@ require 'player'
 
 describe Player do
   subject(:player) { described_class.new("Sam") }
+  let(:player2) { double :player2, deduct: nil }
 
   it 'has a name' do
     expect(player.name).to eq "Sam"
