@@ -22,6 +22,8 @@ class Battle < Sinatra::Base
   end
 
   get '/confirmation' do
+    @player_2_name = $player2.name
+    @player_2_score = $player2.deduct
     erb :confirmation
   end
 
