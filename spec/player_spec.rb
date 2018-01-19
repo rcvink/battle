@@ -18,4 +18,12 @@ describe Player do
     end
   end
 
+  describe '#dead?' do
+    it 'returns true when the player\'s health is 0' do
+      # allow(player).to receive(:health).and_return(0)
+      10.times { player.deduct }
+      expect(player.dead?).to be(true)
+    end
+  end
+
 end

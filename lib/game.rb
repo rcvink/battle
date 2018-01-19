@@ -18,4 +18,8 @@ class Game
     @victim == @players[0] ? @victim = @players[1] : @victim = @players[0]
   end
 
+  def ended?
+    @player1.dead? || @player2.dead?
+  end
+
 end

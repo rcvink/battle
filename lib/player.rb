@@ -10,4 +10,8 @@ class Player
     @health -= 10
   end
 
+  def dead?
+    @health == 0
+  end
+
 end

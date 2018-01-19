@@ -25,4 +25,12 @@ describe Game do
       expect { game.switch_turn }.to change { game.victim }.from(game.player2).to(game.player1)
     end
   end
+
+  describe '#ended?' do
+    it 'returns true if the game is over' do
+      allow(player1).to receive(:dead?) { true }
+      expect(game.ended?).to eq(true)
+    end
+  end
+
 end
