@@ -1,14 +1,20 @@
 require_relative 'player'
 
 class Game
-  attr_reader :player1, :player2
+  attr_reader :player1, :player2, :victim
 
-  def add(player_1_name, player_2_name, player_class = Player)
-    @player1 = player_class.new(player_1_name)
-    @player2 = player_class.new(player_2_name)
+  def initialize(player1, player2)
+    @player1 = player1
+    @player2 = player2
+    @players = [@player1, @player2]
   end
 
   def attack(target)
     target.deduct
   end
+
+  def switch_turn
+    @victim == @players[0] ? @victim = @players[1] : @victim = @players[0]
+  end
+
 end
