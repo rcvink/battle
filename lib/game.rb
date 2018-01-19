@@ -1,7 +1,7 @@
 require_relative 'player'
 
 class Game
-  attr_reader :player1, :player2, :victim
+  attr_reader :player1, :player2, :victim, :winner, :loser, :ended
 
   def initialize(player1, player2)
     @player1 = player1
@@ -18,8 +18,21 @@ class Game
     @victim == @players[0] ? @victim = @players[1] : @victim = @players[0]
   end
 
-  def ended?
-    @player1.dead? || @player2.dead?
+  def end_game
+    # @loser = @victim
+    # @player1.dead? ? @winner = @player2 : @winner = @player1
+    if @player1.dead?
+      @winner = @player2
+      @loser = @player1
+    elsif @player2.dead?
+      @winner = @player1
+      @loser = @player2
+    end
+    @ended = true
   end
+
+  # def ended?
+  #   !@winner.nil?
+  # end
 
 end

@@ -20,7 +20,7 @@ class Battle < Sinatra::Base
 
   get '/confirmation' do
     $game.attack
-    erb :confirmation
+    $game.ended ? erb(:end) : erb(:confirmation)
   end
 
   get '/next_turn' do

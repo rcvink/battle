@@ -29,7 +29,24 @@ describe Game do
   describe '#ended?' do
     it 'returns true if the game is over' do
       allow(player1).to receive(:dead?) { true }
+      game.end_game
       expect(game.ended?).to eq(true)
+    end
+  end
+
+  context 'after game is ended' do
+    before(:each) do
+      allow(player1).to receive(:dead?) { true }
+      allow(player2).to receive(:dead?) { false }
+      game.end_game
+    end
+
+    it 'has a winner' do
+      expect(game.winner).to eq player2
+    end
+
+    it 'has a loser' do
+      expect(game.loser).to eq player1
     end
   end
 
