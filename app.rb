@@ -11,7 +11,7 @@ class Battle < Sinatra::Base
 
   post '/names' do
     $game = Game.new(Player.new(params[:player_1_name]), Player.new(params[:player_2_name]))
-    redirect to'/play'
+    redirect to '/play'
   end
 
   get '/play' do
@@ -19,8 +19,13 @@ class Battle < Sinatra::Base
   end
 
   get '/confirmation' do
-    $game.attack($game.victim)
+    $game.attack
     erb :confirmation
+  end
+
+  get '/next_turn' do
+    $game.switch_turn
+    redirect to '/play'
   end
 
   run! if app_file == $0

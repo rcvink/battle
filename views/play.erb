@@ -3,10 +3,12 @@
 <div style="font-size: 28px">
 <%= $game.player1.name %> vs <%= $game.player2.name %>
 <br><br>
+<%= $game.player1.name %> Health: <%= $game.player1.health %>
+<br>
 <%= $game.player2.name %> Health: <%= $game.player2.health %>
 
-<form action="/confirmation" method="get">
-<button type="submit" value="attack">Attack</button>
+<form action="/confirmation">
+<button type="submit" value="attack">Attack <%= $game.victim.name %> </button>
 </form>
 
 <div>

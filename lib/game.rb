@@ -7,10 +7,11 @@ class Game
     @player1 = player1
     @player2 = player2
     @players = [@player1, @player2]
+    @victim = player2
   end
 
-  def attack(target)
-    target.deduct
+  def attack
+    @victim.deduct
   end
 
   def switch_turn

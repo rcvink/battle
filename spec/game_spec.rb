@@ -15,7 +15,7 @@ describe Game do
 
   describe '#attack' do
     it 'can attack' do
-      game.attack(player2)
+      game.attack
       expect(player2).to have_received(:deduct)
     end
   end
