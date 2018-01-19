@@ -16,16 +16,16 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    @player_1_name = $game.player1.name
-    @player_2_name = $game.player2.name
-    @player_2_health = $game.player2.health
+    # @player_1_name = $game.player1.name
+    # @player_2_name = $game.player2.name
+    # @player_2_health = $game.player2.health
     erb :play
   end
 
   get '/confirmation' do
-    @player_2_name = $game.player2.name
+    # @player_2_name = $game.player2.name
     $game.attack($game.player2)
-    @player_2_health = $game.player2.health
+    # @player_2_health = $game.player2.health
     erb :confirmation
   end
 

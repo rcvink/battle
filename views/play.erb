@@ -1,11 +1,9 @@
-<iframe src="https://giphy.com/embed/rQJF42ylb31iE"
-width="480" height="197" frameBorder="0" class="giphy-embed"
-allowFullScreen></iframe></br></br>
+<img src="https://media.giphy.com/media/rQJF42ylb31iE/giphy.gif">
 
 <div style="font-size: 28px">
-<%= @player_1_name %> vs <%= @player_2_name %>
+<%= $game.player1.name %> vs <%= $game.player2.name %>
 <br><br>
-<%= @player_2_name %> Health: <%= @player_2_health %>
+<%= $game.player2.name %> Health: <%= $game.player2.health %>
 
 <form action="/confirmation" method="get">
 <button type="submit" value="attack">Attack</button>
